@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Message;
+use Illuminate\Http\Request;
+
+class MessagesController extends Controller
+{
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
+    {
+        $messages = Message::orderBy('created_at', 'ASC')->get();
+
+        return view('messages')
+            ->with('messages', $messages);
+    }
+}
