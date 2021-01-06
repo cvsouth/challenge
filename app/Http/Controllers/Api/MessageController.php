@@ -25,7 +25,7 @@ class MessageController extends Controller
      */
     public function store()
     {
-        $content = Request::get('content');
+        $content = substr(Request::get('content'), 0, 255);
 
 //    $content = filter_var(Request::get('content'), FILTER_SANITIZE_STRING);
 
