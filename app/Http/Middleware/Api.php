@@ -12,12 +12,10 @@ class Api
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
-=     * @return mixed
+     * @return mixed
      */
     public function handle(Request $request, Closure $next)
     {
-        dd('hello');
-
         return $next($request);
     }
 }
